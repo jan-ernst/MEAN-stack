@@ -14,7 +14,7 @@
     <button mat-mini-fab color="primary" type="button" (click)="filePicker.click()">
       <mat-icon matTooltip="Upload Image" matTooltipPosition="right">add_a_photo</mat-icon>
     </button>
-    <input type="file" #filePicker>
+    <input type="file" #filePicker (change)="onImagePicked($event)">
     <br><br>
 
     <mat-form-field>
