@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+    <span>
+      <a routerLink="/" routerLinkActive="mat-accent">
+        <button mat-mini-fab color="warn">
+          <mat-icon>home</mat-icon>
+        </button>
+      </a>
+    </span>
+    <div class="title">
+      <h1><p>Post-It</p></h1>
+    </div>
+    <span class="spacer"></span>
+
+    <!-- Search box
+    <div class="search-box">
+      <input class="search-text" type="text" name="" placeholder="Type to search...">
+      <a class="search-btn" href='#'>
+        <i class="fas fa-search"></i>
+      </a>
+    </div>
+    -->
+
+    <ul>
+      <li>
+          <a routerLink="/create" routerLinkActive="mat-accent">
+            <button mat-mini-fab color="warn">
+              <mat-icon matTooltip="New Post">add</mat-icon>
+            </button>
+          </a>
+      </li>
+    </ul>
+  </mat-toolbar>

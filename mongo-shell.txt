@@ -1,0 +1,2 @@
+mongo "mongodb+srv://cluster0-nikhb.mongodb.net/test" --username jen
+password: RcGT4TgbKCYUYWom
