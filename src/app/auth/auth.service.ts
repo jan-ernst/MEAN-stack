@@ -7,6 +7,7 @@ import { Subject } from "rxjs";
 @Injectable({ providedIn: "root" })
 
 export class AuthService {
+  private isAuthenticated = false;
   private token: string;
   private authStatusListener = new Subject<boolean>();
 
@@ -18,6 +19,10 @@ export class AuthService {
 
   getAuthStatusListener() {
     return this.authStatusListener.asObservable();
+  }
+
+  getIsAuth() {
+    return this.isAuthenticated;
   }
 
   createUser(email: string, password: string) {
@@ -35,7 +40,11 @@ export class AuthService {
       .subscribe(response => {
         const token = response.token;
         this.token = token;
-        this.authStatusListener.next(true);
+        if (token) {
+          this.isAuthenticated = true;
+          this.authStatusListener.next(true);
+        }
+
     });
   }
 }
