@@ -21,7 +21,7 @@
     -->
 
     <ul>
-      <li class="AddPost">
+      <li class="AddPost" *ngIf="userIsAuthenticated">
           <a routerLink="/create" routerLinkActive="mat-accent">
             <button mat-mini-fab color="warn">
               <mat-icon matTooltip="New Post">add</mat-icon>
@@ -29,12 +29,16 @@
           </a>
       </li>
 
-      <li>
+      <li *ngIf="!userIsAuthenticated">
         <a mat-button routerLink="/login" routerLinkActive="mat-accent">Login</a>
       </li>
 
-      <li>
+      <li *ngIf="!userIsAuthenticated">
         <a mat-button routerLink="/signup" routerLinkActive="mat-accent">Signup</a>
+      </li>
+
+      <li *ngIf="userIsAuthenticated">
+        <button mat-button>Logout</button>
       </li>
 
     </ul>
