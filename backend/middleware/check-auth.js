@@ -4,7 +4,8 @@ module.exports = (req, res, next) => {
   // extracting the token from http header
   try {
   const token = req.headers.authorization.split(" ")[1];
-  jwt.verify(token, "this_should_be_a_long_secret");
+  const decodedToken = jwt.verify(token, "this_should_be_a_long_secret");
+  req.userData = {email: decodedToken.email, userId: decodedToken.userId };
   next();
 
   } catch (error) {
